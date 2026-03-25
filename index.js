@@ -4,12 +4,16 @@ const env = require("dotenv");
 const mongoose = require("mongoose");
 const Movie = require("./models/movie.model")
 
+const MovieRoutes = require('./routes/movie.routes');
+
 env.config();
 const app = express();
 
 // configure body-parser
-app.use(bodyParser.urlencoded({extended: true}))
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+
+MovieRoutes(app);
 
 app.get("/", (req, res)=> {
 
