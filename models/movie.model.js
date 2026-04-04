@@ -4,7 +4,7 @@ const mongoose  = require('mongoose');
 /**
  * Define the schema of the movie resource to be stored in the db
  */
-
+ 
 const movieSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -12,7 +12,8 @@ const movieSchema = new mongoose.Schema({
     },
     description: {
         type: String,
-        required: true
+        required: true,
+        minLength: 5
     },
     casts: {
         type: [String],
